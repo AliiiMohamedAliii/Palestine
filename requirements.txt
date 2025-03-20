@@ -1,0 +1,7 @@
+arabic-reshaper
+python-bidi
+streamlit
+pillow
+pandas
+folium
+streamlit-folium
