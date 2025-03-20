@@ -1,7 +1,6 @@
 import streamlit as st
 import time
 from PIL import Image, ImageDraw, ImageFont
-import arabic_reshaper
 from bidi.algorithm import get_display
 import pandas as pd
 import folium
