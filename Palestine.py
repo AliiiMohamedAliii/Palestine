@@ -6,8 +6,35 @@ import pandas as pd
 import folium
 from streamlit_folium import folium_static
 
-# Setting page config
+
+# Set page config FIRST
 st.set_page_config(page_title="Viva Palestine", layout="centered")
+
+# Custom CSS for mobile-friendly navigation
+st.markdown(
+    """
+    <style>
+    /* Make sidebar wider */
+    section[data-testid="stSidebar"] {
+        width: 250px !important;
+    }
+    /* Increase button size and padding */
+    .stButton button {
+        width: 100%;
+        padding: 15px 0;
+        font-size: 18px;
+    }
+    /* Responsive font size for mobile */
+    @media (max-width: 600px) {
+        .stButton button {
+            font-size: 20px;
+            padding: 20px 0;
+        }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Define pages
 PAGES = {
@@ -33,8 +60,9 @@ def navigate_to(page):
 # Sidebar for navigation
 st.sidebar.title("Navigation")
 for page_name, page_key in PAGES.items():
-    if st.sidebar.button(page_name):
+    if st.sidebar.button(page_name, key=page_key):
         navigate_to(page_key)
+
 
 # Home Page
 if st.session_state.current_page == "home":
@@ -97,16 +125,16 @@ elif st.session_state.current_page == "heritage":
     st.write("## Palestinian Heritage 📸")
 
     rows = [
-        ["MVIMG_20190611_202033.jpg", "Al-Aqsa Mosque, one of Islam's holiest sites, located in the heart of Jerusalem. A symbol of faith, resilience, and Palestinian heritage."],
-        ["download.jpg", "Traditional Palestinian Women's Clothing – A beautiful display of embroidered dresses (thobes), a symbol of heritage, identity, and resilience."],
-        ["download (1).jpg", "Dome of the Rock – An iconic Islamic landmark in Jerusalem, known for its stunning golden dome and deep religious and historical significance."],
-        ["download (2).jpg", "Ancient Palestinian Olive Trees – A symbol of resilience and deep-rooted Palestinian heritage, these olive trees have stood for centuries, witnessing history and nurturing generations with their precious oil."],
-        ["download (3).jpg", "Buraq Wall – A sacred site in Jerusalem, known in Islamic tradition as the place where Prophet Muhammad tied his Buraq during the Night Journey (Isra and Mi'raj). It holds deep historical and religious significance for Muslims worldwide."],
-        ["download (4).jpg", "Jerusalem Walls – These historic walls surround the Old City of Jerusalem, standing as a witness to centuries of history, culture, and resilience. Built by the Ottomans in the 16th century, they protect some of the most sacred sites in the world, including Al-Aqsa Mosque and the Dome of the Rock."],
-        ["download (5).jpg", "Church of the Nativity - One of the holiest sites in Christianity, located in Bethlehem. It is believed to be the birthplace of Jesus Christ."],
-        ["4.jpg", "Church of the Holy Sepulchre – A sacred Christian site in Jerusalem, believed to be the location of Jesus Christ's crucifixion, burial, and resurrection."],
-        ["12.jpg", "Khan al-Umdan – A historic caravanserai in Acre, Palestine, built during the Ottoman era. It was a key center for trade and commerce, known for its grand columns and stunning architecture."],
-        ["14.jpg", "The Shrine of the Báb and the Bahá'í Gardens – A UNESCO World Heritage Site in Haifa, featuring breathtaking terraced gardens and the golden-domed shrine, a sacred site in the Bahá'í faith."]
+        ["C://Users//Lapcom Store//.streamlit//MVIMG_20190611_202033.jpg", "Al-Aqsa Mosque, one of Islam's holiest sites, located in the heart of Jerusalem. A symbol of faith, resilience, and Palestinian heritage."],
+        ["C://Users//Lapcom Store//.streamlit//download.jpg", "Traditional Palestinian Women's Clothing – A beautiful display of embroidered dresses (thobes), a symbol of heritage, identity, and resilience."],
+        ["C://Users//Lapcom Store//.streamlit//download (1).jpg", "Dome of the Rock – An iconic Islamic landmark in Jerusalem, known for its stunning golden dome and deep religious and historical significance."],
+        ["C://Users//Lapcom Store//.streamlit//download (2).jpg", "Ancient Palestinian Olive Trees – A symbol of resilience and deep-rooted Palestinian heritage, these olive trees have stood for centuries, witnessing history and nurturing generations with their precious oil."],
+        ["C://Users//Lapcom Store//.streamlit//download (3).jpg", "Buraq Wall – A sacred site in Jerusalem, known in Islamic tradition as the place where Prophet Muhammad tied his Buraq during the Night Journey (Isra and Mi'raj). It holds deep historical and religious significance for Muslims worldwide."],
+        ["C://Users//Lapcom Store//.streamlit//download (4).jpg", "Jerusalem Walls – These historic walls surround the Old City of Jerusalem, standing as a witness to centuries of history, culture, and resilience. Built by the Ottomans in the 16th century, they protect some of the most sacred sites in the world, including Al-Aqsa Mosque and the Dome of the Rock."],
+        ["C://Users//Lapcom Store//.streamlit//download (5).jpg", "Church of the Nativity - One of the holiest sites in Christianity, located in Bethlehem. It is believed to be the birthplace of Jesus Christ."],
+        ["C://Users//Lapcom Store//.streamlit//4.jpg", "Church of the Holy Sepulchre – A sacred Christian site in Jerusalem, believed to be the location of Jesus Christ's crucifixion, burial, and resurrection."],
+        ["C://Users//Lapcom Store//.streamlit//12.jpg", "Khan al-Umdan – A historic caravanserai in Acre, Palestine, built during the Ottoman era. It was a key center for trade and commerce, known for its grand columns and stunning architecture."],
+        ["C://Users//Lapcom Store//.streamlit//14.jpg", "The Shrine of the Báb and the Bahá'í Gardens – A UNESCO World Heritage Site in Haifa, featuring breathtaking terraced gardens and the golden-domed shrine, a sacred site in the Bahá'í faith."]
     ]
 
     for i in range(0, len(rows), 2):
@@ -120,7 +148,7 @@ elif st.session_state.current_page == "heritage":
 # Palestinian Music & Poetry Page
 elif st.session_state.current_page == "music_poetry":
     st.write("## Palestinian Music & Poetry 🎶📖")
-    st.audio("9wymWT3oql0.mp3")
+    st.audio("C://Users//Lapcom Store//.streamlit//9wymWT3oql0.mp3")
     st.write("**Poem by Mahmoud Darwish**")
     st.markdown("""
         <style>
@@ -167,7 +195,7 @@ elif st.session_state.current_page == "virtual_tour":
 # Palestinian Art & Calligraphy Page
 elif st.session_state.current_page == "art_calligraphy":
     st.write("## Palestinian Art & Calligraphy 🎨")
-    st.image("download19.jpg", caption="Arabic Calligraphy")
+    st.image("C://Users//Lapcom Store//.streamlit//download19.jpg", caption="Arabic Calligraphy")
 
 # Support Palestine Page
 elif st.session_state.current_page == "support":
@@ -200,4 +228,4 @@ if st.button("Wave the Flag! ", key="wave_flag_end"):
     with st.spinner("Raising the flag..."):
         time.sleep(2)
     st.success("The Palestinian flag is waving high! ")
-    st.image("images.jpg", caption="Palestine will always be free! ✊", use_container_width=True)
+    st.image("C://Users//Lapcom Store//.streamlit//images.jpg", caption="Palestine will always be free! ✊", use_container_width=True)
