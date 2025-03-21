@@ -188,7 +188,7 @@ elif st.session_state.current_page == "contribution_wall":
 st.write("---")
 st.markdown("""
     <h2 style='text-align: center; color: green;'> Remember... </h2>
-    <p style='text-align: center; font-size:20px; color: white;'>
+    <p style='text-align: center; font-size:20px; color: black;'>
         ✊ Palestine will always be free! <br>
         🌍 The land belongs to its people! <br>
         ❤️ Keep supporting, keep resisting!  
